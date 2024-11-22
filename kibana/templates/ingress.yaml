@@ -1,51 +1,29 @@
-# {{- if .Values.ingress.enabled -}}
-# {{- $fullName := include "kibana.fullname" . -}}
-# {{- $httpPort := .Values.httpPort -}}
-# {{- $ingressPath := .Values.ingress.path -}}
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: {{ $fullName }}
-#   labels: {{ include "kibana.labels" . | nindent 4 }}
-# {{- with .Values.ingress.annotations }}
-#   annotations:
-# {{ toYaml . | indent 4 }}
-# {{- end }}
-# spec:
-# {{- if .Values.ingress.tls }}
-#   tls:
-#   {{- if .ingressPath }}
-#   {{- range .Values.ingress.tls }}
-#   - hosts:
-#     {{- range .hosts }}
-#       - {{ . }}
-#     {{- end }}
-#     secretName: {{ .secretName }}
-#     {{- end }}
-#   {{- else }}
-# {{ toYaml .Values.ingress.tls | indent 4 }}
-#   {{- end }}
-# {{- end }}
-#   rules:
-#   {{- range .Values.ingress.hosts }}
-#     {{- if $ingressPath }}
-#     - host: {{ . }}
-#       http:
-#         paths:
-#           - path: {{ $ingressPath }}
-#             backend:
-#               serviceName: {{ $fullName }}
-#               servicePort: {{ $httpPort }}
-#     {{- else }}
-#     - host: {{ .host }}
-#       http:
-#         paths:
-#         {{- range .paths }}
-#           - path: {{ .path }}
-#             backend:
-#               serviceName: {{ $fullName }}
-#               servicePort: {{ .servicePort | default $httpPort }}
-#         {{- end }}
-#     {{- end }}
-#   {{- end }}
-# {{- end }}
+{{- if .Values.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "kibana.fullname" . }}
+  labels: {{ include "kibana.labels" . | nindent 4 }}
+{{- with .Values.ingress.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
+spec:
+  {{- if .Values.ingress.tls }}
+  tls:
+    - hosts:
+      - {{ .Values.ingress.hosts[0] }}
+      secretName: {{ .Values.ingress.tls[0].secretName }}
+  {{- end }}
+  rules:
+    - host: {{ .Values.ingress.hosts[0] }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "kibana.fullname" . }}
+                port:
+                  number: 5601
+{{- end }}
