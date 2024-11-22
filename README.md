@@ -5,7 +5,8 @@
 
 1. [📘Table of Contents](#📘table-of-contents)
 2. [🖖Introduction](#🖖introduction)
-3. [🔗Links](#🔗links)
+3. [📚Documentation](#📚documentation)
+4. [🔗Links](#🔗links)
 
 ---
 
@@ -17,6 +18,16 @@ Please also see following documents:
 - [LICENSE](LICENSE.md)
 - [SECURITY](SECURITY.md)
 - [CONTRIBUTING](CONTRIBUTING.md)
+
+
+## 📚Documentation
+
+- Install `Logstash`:
+```bash
+helm install  
+```
+
+
 
 ## 🔗Links
 - 👯 Web hosting company [EliasDH.com](https://eliasdh.com).
