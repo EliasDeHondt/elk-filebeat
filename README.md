@@ -54,6 +54,18 @@ helm upgrade elasticsearch https://raw.githubusercontent.com/EliasDeHondt/elk-fi
 helm upgrade kibana https://raw.githubusercontent.com/EliasDeHondt/elk-filebeat/refs/heads/main/package/kibana-x.x.x.tgz
 ```
 
+- Create a new version of the Helm chart for the repository:
+```bash
+rm -rf package
+mkdir package
+cd package
+helm package ../filebeat/
+helm package ../logstash/
+helm package ../elasticsearch/
+helm package ../kibana/
+helm repo index .
+```
+
 ## 🔗Links
 - 👯 Web hosting company [EliasDH.com](https://eliasdh.com).
 - 📫 How to reach us elias.dehondt@outlook.com

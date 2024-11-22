@@ -1,0 +1,71 @@
+apiVersion: v1
+entries:
+  elasticsearch:
+  - apiVersion: v1
+    appVersion: 7.15.0
+    created: "2024-11-22T18:08:26.9256375+01:00"
+    description: Official Elastic helm chart for Elasticsearch
+    digest: a7d7ff32697ce0521a56a5ee578692e7db086ce095c6493fdd73cd2b1e0e07c8
+    home: https://github.com/elastic/helm-charts
+    icon: https://helm.elastic.co/icons/elasticsearch.png
+    maintainers:
+    - email: helm-charts@elastic.co
+      name: Elastic
+    name: elasticsearch
+    sources:
+    - https://github.com/elastic/elasticsearch
+    urls:
+    - package/elasticsearch-7.15.0.tgz
+    version: 7.15.0
+  filebeat:
+  - apiVersion: v1
+    appVersion: 7.15.0
+    created: "2024-11-22T18:08:26.9264496+01:00"
+    description: Official Elastic helm chart for Filebeat
+    digest: 42abf0281afa13fdb2cdae727a04707d0780afa4a7b56fa50cd8fad736910aff
+    home: https://github.com/elastic/helm-charts
+    icon: https://helm.elastic.co/icons/beats.png
+    maintainers:
+    - email: helm-charts@elastic.co
+      name: Elastic
+    name: filebeat
+    sources:
+    - https://github.com/elastic/beats
+    urls:
+    - package/filebeat-7.15.0.tgz
+    version: 7.15.0
+  kibana:
+  - apiVersion: v1
+    appVersion: 7.15.0
+    created: "2024-11-22T18:08:26.9270588+01:00"
+    description: Official Elastic helm chart for Kibana
+    digest: f798cd9311f2db05b6de1828d86ec124ebe9f0441a1959b9290753dd6a75aa2d
+    home: https://github.com/elastic/helm-charts
+    icon: https://helm.elastic.co/icons/kibana.png
+    maintainers:
+    - email: helm-charts@elastic.co
+      name: Elastic
+    name: kibana
+    sources:
+    - https://github.com/elastic/kibana
+    urls:
+    - package/kibana-7.15.0.tgz
+    version: 7.15.0
+  logstash:
+  - apiVersion: v1
+    appVersion: 7.15.0
+    created: "2024-11-22T18:08:26.9276942+01:00"
+    description: Official Elastic helm chart for Logstash
+    digest: d4f999ece8a15b1f81b416cc0940ecd44d7ebf4a80673e5f6027461241a0c9bb
+    home: https://github.com/elastic/helm-charts
+    icon: https://helm.elastic.co/icons/logstash.png
+    maintainers:
+    - email: helm-charts@elastic.co
+      name: Elastic
+    name: logstash
+    sources:
+    - https://github.com/elastic/logstash
+    urls:
+    - package/logstash-7.15.0.tgz
+    version: 7.15.0
+generated: "2024-11-22T18:08:26.9239628+01:00"
