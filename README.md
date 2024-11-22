@@ -33,10 +33,27 @@ helm package logstash/
 
 - Install `Logstash`:
 ```bash
-helm install logstash 
+helm install logstash https://raw.githubusercontent.com/EliasDeHondt/elk-filebeat/refs/heads/main/package/logstash-7.15.0.tgz
+helm install filebeat https://raw.githubusercontent.com/EliasDeHondt/elk-filebeat/refs/heads/main/package/filebeat-7.15.0.tgz
+helm install kibana https://raw.githubusercontent.com/EliasDeHondt/elk-filebeat/refs/heads/main/package/kibana-7.15.0.tgz
+helm install elasticsearch https://raw.githubusercontent.com/EliasDeHondt/elk-filebeat/refs/heads/main/package/elasticsearch-7.15.0.tgz
 ```
 
+- Uninstall `Logstash`:
+```bash
+helm uninstall logstash
+helm uninstall filebeat
+helm uninstall kibana
+helm uninstall elasticsearch
+```
 
+- Upgrade `Logstash`:
+```bash
+helm upgrade logstash https://raw.githubusercontent.com/EliasDeHondt/elk-filebeat/refs/heads/main/package/logstash-x.x.x.tgz
+helm upgrade filebeat https://raw.githubusercontent.com/EliasDeHondt/elk-filebeat/refs/heads/main/package/filebeat-x.x.x.tgz
+helm upgrade kibana https://raw.githubusercontent.com/EliasDeHondt/elk-filebeat/refs/heads/main/package/kibana-x.x.x.tgz
+helm upgrade elasticsearch https://raw.githubusercontent.com/EliasDeHondt/elk-filebeat/refs/heads/main/package/elasticsearch-x.x.x.tgz
+```
 
 ## 🔗Links
 - 👯 Web hosting company [EliasDH.com](https://eliasdh.com).
