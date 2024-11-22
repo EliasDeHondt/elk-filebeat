@@ -59,6 +59,8 @@ helm upgrade kibana https://raw.githubusercontent.com/EliasDeHondt/elk-filebeat/
 sudo ./package.sh
 ```
 
+![Network Architecture](/Images/network-architecture.png)
+
 ## 🔗Links
 - 👯 Web hosting company [EliasDH.com](https://eliasdh.com).
 - 📫 How to reach us elias.dehondt@outlook.com

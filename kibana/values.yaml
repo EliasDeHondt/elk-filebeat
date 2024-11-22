@@ -59,28 +59,24 @@ service:
   loadBalancerSourceRanges:
     []
   httpPortName: http
-# ingress:
-#   enabled: true
-#   annotations:
-#     cert-manager.io/cluster-issuer: letsencrypt-prod
-#     nginx.ingress.kubernetes.io/ingress.class: "nginx"
-#     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
-#     nginx.ingress.kubernetes.io/ssl-redirect: "true"
-#   tls:
-#     - hosts:
-#         - "elk.kdg-ip2.eliasdh.com"
-#       secretName: "elk-stack-tls"
-#   rules:
-#     - host: "elk.kdg-ip2.eliasdh.com"
-#       http:
-#         paths:
-#           - path: /
-#             pathType: Prefix
-#             backend:
-#               service:
-#                 name: kibana-kibana
-#                 port:
-#                   number: 5601
+ingress:
+  enabled: false
+  className: "nginx"
+  pathtype: ImplementationSpecific
+  annotations: {}
+  cert-manager.io/cluster-issuer: letsencrypt-prod
+  nginx.ingress.kubernetes.io/ingress.class: "nginx"
+  nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+  nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  hosts:
+    - host: elk.kdg-ip2.eliasdh.com
+      paths:
+        - path: /
+  tls:
+    - secretName: elk-stack-tls
+      hosts:
+        - elk.kdg-ip2.eliasdh.com
+
 readinessProbe:
   failureThreshold: 3
   initialDelaySeconds: 10
