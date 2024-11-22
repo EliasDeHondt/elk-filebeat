@@ -59,15 +59,15 @@ service:
   loadBalancerSourceRanges:
     []
   httpPortName: http
-ingress:
-  enabled: true
-  annotations:
-    kubernetes.io/ingress.class: nginx
-  hosts:
-    - host: kubernetes.docker.internal
-      paths:
-        - path: /
-  tls: []
+# ingress:
+#   enabled: true
+#   annotations:
+#     kubernetes.io/ingress.class: nginx
+#   hosts:
+#     - host: kubernetes.docker.internal
+#       paths:
+#         - path: /
+#   tls: []
 readinessProbe:
   failureThreshold: 3
   initialDelaySeconds: 10

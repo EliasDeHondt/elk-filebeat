@@ -1,20 +1,10 @@
-{{/* vim: set filetype=mustache: */}}
-{{/*
-Expand the name of the chart.
-*/}}
 {{- define "elasticsearch.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
-
-{{/*
-Create a default fully qualified app name.
-We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
-*/}}
 {{- define "elasticsearch.fullname" -}}
 {{- $name := default .Chart.Name .Values.nameOverride -}}
 {{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
-
 {{- define "elasticsearch.uname" -}}
 {{- if empty .Values.fullnameOverride -}}
 {{- if empty .Values.nameOverride -}}
@@ -26,7 +16,6 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{ .Values.fullnameOverride }}
 {{- end -}}
 {{- end -}}
-
 {{- define "elasticsearch.masterService" -}}
 {{- if empty .Values.masterService -}}
 {{- if empty .Values.fullnameOverride -}}
@@ -42,7 +31,6 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{ .Values.masterService }}
 {{- end -}}
 {{- end -}}
-
 {{- define "elasticsearch.endpoints" -}}
 {{- $replicas := int (toString (.Values.replicas)) }}
 {{- $uname := (include "elasticsearch.uname" .) }}
@@ -50,7 +38,6 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{ $uname }}-{{ $i }},
   {{- end -}}
 {{- end -}}
-
 {{- define "elasticsearch.esMajorVersion" -}}
 {{- if .Values.esMajorVersion -}}
 {{ .Values.esMajorVersion }}
