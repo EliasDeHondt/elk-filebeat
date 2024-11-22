@@ -65,6 +65,9 @@ helm package ../elasticsearch/
 helm package ../kibana/
 cd ..
 helm repo index .
+git add .
+git commit -m "New version of the Helm chart"
+git push
 ```
 
 ## 🔗Links
