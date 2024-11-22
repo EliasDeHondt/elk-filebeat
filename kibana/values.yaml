@@ -68,19 +68,19 @@ ingress:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
   tls:
     - hosts:
-      - elk.kdg-ip2.eliasdh.com
+        - elk.kdg-ip2.eliasdh.com
       secretName: elk-stack-tls
   rules:
     - host: elk.kdg-ip2.eliasdh.com
       http:
         paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: kibana-kibana
-              port:
-                number: 5601
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kibana-kibana
+                port:
+                  number: 5601
 readinessProbe:
   failureThreshold: 3
   initialDelaySeconds: 10
