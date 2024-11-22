@@ -1,0 +1,138 @@
+############################
+# @author Elias De Hondt   #
+# @see https://eliasdh.com #
+# @since 22/11/2024        #
+############################
+---
+replicas: 1
+logstashConfig: {}
+logstashPipeline:
+  logstash.conf: |
+    input {
+      beats {
+        port => 5044
+      }
+    }
+    output { elasticsearch { hosts => "http://elasticsearch-master:9200" } }
+logstashPatternDir: "/usr/share/logstash/patterns/"
+logstashPattern: {}
+extraEnvs: []
+envFrom: []
+secrets: []
+secretMounts: []
+hostAliases: []
+image: "docker.elastic.co/logstash/logstash"
+imageTag: "7.15.0"
+imagePullPolicy: "IfNotPresent"
+imagePullSecrets: []
+podAnnotations: {}
+labels: {}
+logstashJavaOpts: "-Xmx1g -Xms1g"
+resources:
+  requests:
+    cpu: "100m"
+    memory: "1536Mi"
+  limits:
+    cpu: "1000m"
+    memory: "1536Mi"
+volumeClaimTemplate:
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 1Gi
+rbac:
+  create: false
+  serviceAccountAnnotations: {}
+  serviceAccountName: ""
+  annotations:
+    {}
+podSecurityPolicy:
+  create: false
+  name: ""
+  spec:
+    privileged: false
+    fsGroup:
+      rule: RunAsAny
+    runAsUser:
+      rule: RunAsAny
+    seLinux:
+      rule: RunAsAny
+    supplementalGroups:
+      rule: RunAsAny
+    volumes:
+      - secret
+      - configMap
+      - persistentVolumeClaim
+persistence:
+  enabled: false
+  annotations: {}
+extraVolumes:
+  ""
+extraVolumeMounts:
+  ""
+extraContainers:
+  ""
+extraInitContainers:
+  ""
+priorityClassName: ""
+antiAffinityTopologyKey: "kubernetes.io/hostname"
+antiAffinity: "hard"
+nodeAffinity: {}
+podAffinity: {}
+podManagementPolicy: "Parallel"
+httpPort: 9600
+extraPorts:
+  []
+updateStrategy: RollingUpdate
+maxUnavailable: 1
+podSecurityContext:
+  fsGroup: 1000
+  runAsUser: 1000
+securityContext:
+  capabilities:
+    drop:
+      - ALL
+  runAsNonRoot: true
+  runAsUser: 1000
+terminationGracePeriod: 120
+livenessProbe:
+  httpGet:
+    path: /
+    port: http
+  initialDelaySeconds: 300
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 3
+  successThreshold: 1
+readinessProbe:
+  httpGet:
+    path: /
+    port: http
+  initialDelaySeconds: 60
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 3
+  successThreshold: 3
+schedulerName: ""
+nodeSelector: {}
+tolerations: []
+nameOverride: ""
+fullnameOverride: ""
+lifecycle:
+  {}
+service:
+  annotations: {}
+  type: ClusterIP
+  loadBalancerIP: ""
+  ports:
+    - name: beats
+      port: 5044
+      protocol: TCP
+      targetPort: 5044
+    - name: http
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+ingress:
+  enabled: false
+---
