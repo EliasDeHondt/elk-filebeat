@@ -63,6 +63,7 @@ helm package ../filebeat/
 helm package ../logstash/
 helm package ../elasticsearch/
 helm package ../kibana/
+cd ..
 helm repo index .
 ```
 

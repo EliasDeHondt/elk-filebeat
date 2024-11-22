@@ -3,9 +3,9 @@ entries:
   elasticsearch:
   - apiVersion: v1
     appVersion: 7.15.0
-    created: "2024-11-22T18:08:26.9256375+01:00"
+    created: "2024-11-22T18:11:37.3996367+01:00"
     description: Official Elastic helm chart for Elasticsearch
-    digest: a7d7ff32697ce0521a56a5ee578692e7db086ce095c6493fdd73cd2b1e0e07c8
+    digest: c1499b3efef8ba08e583583ca1ee89e954d75992ba788cf6137e26b4972ab5a9
     home: https://github.com/elastic/helm-charts
     icon: https://helm.elastic.co/icons/elasticsearch.png
     maintainers:
@@ -20,9 +20,9 @@ entries:
   filebeat:
   - apiVersion: v1
     appVersion: 7.15.0
-    created: "2024-11-22T18:08:26.9264496+01:00"
+    created: "2024-11-22T18:11:37.4005547+01:00"
     description: Official Elastic helm chart for Filebeat
-    digest: 42abf0281afa13fdb2cdae727a04707d0780afa4a7b56fa50cd8fad736910aff
+    digest: 87e65b504ffe50070f982bb47d8936b838b84b610fc6127b26e491d1f9a34b5d
     home: https://github.com/elastic/helm-charts
     icon: https://helm.elastic.co/icons/beats.png
     maintainers:
@@ -37,9 +37,9 @@ entries:
   kibana:
   - apiVersion: v1
     appVersion: 7.15.0
-    created: "2024-11-22T18:08:26.9270588+01:00"
+    created: "2024-11-22T18:11:37.4012443+01:00"
     description: Official Elastic helm chart for Kibana
-    digest: f798cd9311f2db05b6de1828d86ec124ebe9f0441a1959b9290753dd6a75aa2d
+    digest: 2be7bcdedaa27d6e8e6247cc23b1beb41576fd65fd54a489422e4444de6420a0
     home: https://github.com/elastic/helm-charts
     icon: https://helm.elastic.co/icons/kibana.png
     maintainers:
@@ -54,9 +54,9 @@ entries:
   logstash:
   - apiVersion: v1
     appVersion: 7.15.0
-    created: "2024-11-22T18:08:26.9276942+01:00"
+    created: "2024-11-22T18:11:37.4021863+01:00"
     description: Official Elastic helm chart for Logstash
-    digest: d4f999ece8a15b1f81b416cc0940ecd44d7ebf4a80673e5f6027461241a0c9bb
+    digest: f8c4ab7801825150acf4673ef71a35c49a3a94d8695073e7a9e11b9c6665cf03
     home: https://github.com/elastic/helm-charts
     icon: https://helm.elastic.co/icons/logstash.png
     maintainers:
@@ -68,4 +68,4 @@ entries:
     urls:
     - package/logstash-7.15.0.tgz
     version: 7.15.0
-generated: "2024-11-22T18:08:26.9239628+01:00"
+generated: "2024-11-22T18:11:37.3983669+01:00"
