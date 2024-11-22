@@ -12,8 +12,8 @@ spec:
   {{- if .Values.ingress.tls }}
   tls:
     - hosts:
-      - {{ .Values.ingress.hosts | first }}
-      secretName: {{ .Values.ingress.tls.secretName }}
+        - {{ .Values.ingress.tls[0].hosts | first }}
+      secretName: {{ .Values.ingress.tls[0].secretName }}
   {{- end }}
   rules:
     {{- range .Values.ingress.rules }}
