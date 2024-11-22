@@ -56,15 +56,7 @@ helm upgrade kibana https://raw.githubusercontent.com/EliasDeHondt/elk-filebeat/
 
 - Create a new version of the Helm chart for the repository:
 ```bash
-rm -rf package
-mkdir package
-cd package
-helm package ../filebeat/
-helm package ../logstash/
-helm package ../elasticsearch/
-helm package ../kibana/
-cd ..
-helm repo index .
+sudo ./package.sh
 ```
 
 ## 🔗Links
