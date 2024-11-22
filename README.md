@@ -22,9 +22,18 @@ Please also see following documents:
 
 ## 📚Documentation
 
+- Create a new `.tgz` file for each Helm chart:
+```bash
+cd package
+helm package elasticsearch/ 
+helm package filebeat/
+helm package kibana/
+helm package logstash/
+```
+
 - Install `Logstash`:
 ```bash
-helm install  
+helm install logstash 
 ```
 
 
