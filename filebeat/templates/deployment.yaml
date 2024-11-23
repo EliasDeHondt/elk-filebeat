@@ -1,4 +1,9 @@
-# Deploy singleton instance in the whole cluster for some unique data sources, like aws input
+############################
+# @author Elias De Hondt   #
+# @see https://eliasdh.com #
+# @since 22/11/2024        #
+############################
+---
 {{- if .Values.deployment.enabled }}
 ---
 apiVersion: apps/v1
@@ -92,12 +97,6 @@ spec:
       {{- end }}
       {{- if .Values.extraInitContainers }}
       initContainers:
-      # All the other beats accept a string here while
-      # filebeat accepts a valid yaml array. We're keeping
-      # this as a backwards compatible change, while adding
-      # also a way to pass a string as other templates to
-      # make these implementations consistent.
-      # https://github.com/elastic/helm-charts/issues/490
       {{- if eq "string" (printf "%T" .Values.extraInitContainers) }}
 {{ tpl .Values.extraInitContainers . | indent 6 }}
       {{- else }}

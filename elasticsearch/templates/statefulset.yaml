@@ -1,3 +1,8 @@
+############################
+# @author Elias De Hondt   #
+# @see https://eliasdh.com #
+# @since 22/11/2024        #
+############################
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -67,7 +72,7 @@ spec:
       securityContext:
 {{ toYaml .Values.podSecurityContext | indent 8 }}
         {{- if .Values.fsGroup }}
-        fsGroup: {{ .Values.fsGroup }} # Deprecated value, please use .Values.podSecurityContext.fsGroup
+        fsGroup: {{ .Values.fsGroup }}
         {{- end }}
       {{- if .Values.rbac.create }}
       serviceAccountName: "{{ template "elasticsearch.uname" . }}"
@@ -139,9 +144,6 @@ spec:
         {{- end }}
 {{ end }}
       {{- if .Values.extraVolumes }}
-      # Currently some extra blocks accept strings
-      # to continue with backwards compatibility this is being kept
-      # whilst also allowing for yaml to be specified too.
       {{- if eq "string" (printf "%T" .Values.extraVolumes) }}
 {{ tpl .Values.extraVolumes . | indent 8 }}
       {{- else }}
@@ -207,9 +209,6 @@ spec:
           {{- end }}
 {{ end }}
       {{- if .Values.extraInitContainers }}
-      # Currently some extra blocks accept strings
-      # to continue with backwards compatibility this is being kept
-      # whilst also allowing for yaml to be specified too.
       {{- if eq "string" (printf "%T" .Values.extraInitContainers) }}
 {{ tpl .Values.extraInitContainers . | indent 6 }}
       {{- else }}
@@ -353,9 +352,6 @@ spec:
             subPath: {{ $path }}
           {{- end -}}
         {{- if .Values.extraVolumeMounts }}
-        # Currently some extra blocks accept strings
-        # to continue with backwards compatibility this is being kept
-        # whilst also allowing for yaml to be specified too.
         {{- if eq "string" (printf "%T" .Values.extraVolumeMounts) }}
 {{ tpl .Values.extraVolumeMounts . | indent 10 }}
         {{- else }}
@@ -367,9 +363,6 @@ spec:
 {{ toYaml .Values.lifecycle | indent 10 }}
 {{- end }}
       {{- if .Values.extraContainers }}
-      # Currently some extra blocks accept strings
-      # to continue with backwards compatibility this is being kept
-      # whilst also allowing for yaml to be specified too.
       {{- if eq "string" (printf "%T" .Values.extraContainers) }}
 {{ tpl .Values.extraContainers . | indent 6 }}
       {{- else }}
