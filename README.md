@@ -21,6 +21,13 @@ Please also see following documents:
 
 ## 📚Documentation
 
+- Install `Helm`:
+```bash
+sudo snap install helm --classic
+```
+
+- Make sure you modify the [values.yaml](/kibana/values.yaml) file specifically for the ingress configuration line `71`and `77`. You need to put in your own FQDN for the `host`. And make sure you put the external IP address of the ingress service in your DNS.
+
 - Create a new `.tgz` file for each Helm chart:
 ```bash
 cd package
@@ -40,7 +47,7 @@ helm install kibana https://raw.githubusercontent.com/EliasDeHondt/elk-filebeat/
 
 - Get the Ip address of the `Kibana` service:
 ```bash
-kubectl get svc kibana-kibana -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+kubectl get ingress
 ```
 
 - Uninstall `Logstash`:
