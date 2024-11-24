@@ -60,7 +60,7 @@ service:
     []
   httpPortName: http
 ingress:
-  enabled: false
+  enabled: true
   className: "nginx"
   pathtype: ImplementationSpecific
   annotations: {}
@@ -76,7 +76,6 @@ ingress:
     - secretName: elk-stack-tls
       hosts:
         - elk.kdg-ip2.eliasdh.com
-
 readinessProbe:
   failureThreshold: 3
   initialDelaySeconds: 10
