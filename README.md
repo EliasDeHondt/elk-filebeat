@@ -38,6 +38,11 @@ helm install elasticsearch https://raw.githubusercontent.com/EliasDeHondt/elk-fi
 helm install kibana https://raw.githubusercontent.com/EliasDeHondt/elk-filebeat/refs/heads/main/package/kibana-7.15.0.tgz
 ```
 
+- Get the Ip address of the `Kibana` service:
+```bash
+kubectl get svc kibana-kibana -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+```
+
 - Uninstall `Logstash`:
 ```bash
 helm uninstall filebeat
