@@ -69,13 +69,13 @@ ingress:
   nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
   nginx.ingress.kubernetes.io/ssl-redirect: "true"
   hosts:
-    - host: elk.team5.eliasdh.com
+    - host: elk.eliasdh.com
       paths:
         - path: /
   tls:
     - secretName: elk-tls
       hosts:
-        - elk.teamx.eliasdh.com
+        - elk.eliasdh.com
 readinessProbe:
   failureThreshold: 3
   initialDelaySeconds: 10
